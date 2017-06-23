@@ -28,7 +28,7 @@ To compile test.cc using the static library:
 
 #ifndef __EULERTOOLS_H__
 #define __EULERTOOLS_H__
-#include <unordered_set>
+
 #include <vector>
 
 namespace euler{
@@ -41,7 +41,7 @@ namespace euler{
        int Nmax,
        std::vector<int>& primes,
        int nmap = -1);
-  std::unordered_set<int> getAllDivisors(
+  std::vector<int> getAllDivisors(
        int Nmax,
        std::vector<int>& primes,
        int nmap = -1);

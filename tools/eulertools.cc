@@ -31,9 +31,8 @@ euler::getListOfPrimes(int Nmax,vector<int>& primes,int maxp){
   for (int i = maxval; i < Nmax+1; i++){
     bool isPrime = true;
 
-    //for (auto& p : primes){
-    for (vector<int>::iterator p=primes.begin(); p<primes.end(); p++){
-      if (i%(*p)==0) {
+    for (auto& p : primes){
+      if (i%p==0) {
         isPrime = false;
         break;
       }
@@ -75,7 +74,7 @@ euler::getPrimeDivisors(int N, vector<int>& primes, int maxp)
 
 }
 
-unordered_set<int>
+vector<int>
 euler::getAllDivisors(int N, vector<int>& primes, int maxp){
 
   vector<int> divs = getPrimeDivisors(N,primes,maxp);
@@ -97,7 +96,14 @@ euler::getAllDivisors(int N, vector<int>& primes, int maxp){
 
   }
 
-  return all_divs;
+  vector<int> div_vec(all_divs.size());
+  int i = 0;
+  for (auto& d : all_divs){
+    div_vec[i] = d;
+    i++;
+  }
+
+  return div_vec;
 
 }
 
