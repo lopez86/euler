@@ -7,13 +7,12 @@
 using namespace std;
 
 vector<int> abundants;
-vector<int> primes;
 
 void get_abundants(int n)
 {
 
   for (int i = 2; i <= n; i++){
-    vector<int> divs = euler::getAllDivisors(i,primes);
+    vector<int> divs = euler::getAllDivisors(i);
 
     int sum = -i;
     for (auto& d : divs) sum += d;
@@ -30,7 +29,7 @@ void get_abundants(int n)
 long count_nums(int Nmax = 28123)
 {
   vector<int> has_sum(Nmax+1);
-  euler::getListOfPrimes(Nmax+1,primes);
+  euler::buildListOfPrimes(Nmax+1);
   get_abundants(Nmax);
   for (auto iter = abundants.begin(); iter!=abundants.end(); iter++){
       if ( 2*(*iter)>Nmax) break;

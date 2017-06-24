@@ -33,19 +33,19 @@ To compile test.cc using the static library:
 
 namespace euler{
 
-  void getListOfPrimes(
-       int Nmax,
-       std::vector<int>& primes, 
-       int nmap = -1);
-  std::vector<int> getPrimeDivisors(
-       int Nmax,
-       std::vector<int>& primes,
-       int nmap = -1);
-  std::vector<int> getAllDivisors(
-       int Nmax,
-       std::vector<int>& primes,
-       int nmap = -1);
+  std::vector<int>& get_primes();
 
+  void clear_primes();
+  int prime_bound();
+
+  void buildListOfPrimes(int N);
+  std::vector<int> getPrimeDivisors(int N);
+  std::vector<int> getAllDivisors(int N);
+
+
+  long GCD(long n1, long n2);
+
+  long LCM(long n1, long n2);
 
 }
 
